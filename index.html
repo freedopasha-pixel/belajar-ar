@@ -2,27 +2,27 @@
 <html>
 <head>
     <title>AR Alternatif Tanpa ARCore</title>
-    <!-- Menggunakan kombinasi versi paling aman untuk mencegah layar putih -->
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@e343764/dist/aframe-master.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/3.3.2/aframe/build/aframe-ar.js"></script>
 </head>
-<body style="margin: 0px; overflow: hidden;">
+<body style="margin : 0px; overflow: hidden;">
 
-    <!-- Memaksa scene untuk meminta kamera dengan benar -->
-    <a-scene embedded arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;">
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
         
-        <!-- Marker Hiro -->
+        <a-assets>
+            <a-asset-item id="pisang" src="https://raw.gcdn.cf/KhronosGroup/glTF-Sample-Models/master/2.0/Banana/glTF-Binary/Banana.glb"></a-asset-item>
+        </a-assets>
+
         <a-marker preset="hiro">
-            <!-- Bola Biru -->
-            <a-sphere position="0 0.5 0" 
-                      radius="0.5"
-                      material="color: #00aaff; opacity: 0.9;" 
-                      animation="property: rotation; to: 360 360 0; loop: true; dur: 4000">
-            </a-sphere>
+            
+            <a-entity gltf-model="#pisang"
+                      position="0 0.5 0" 
+                      scale="5 5 5"
+                      animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+            </a-entity>
+            
         </a-marker>
 
-        <!-- Kamera internal AR.js -->
         <a-entity camera></a-entity>
         
     </a-scene>
