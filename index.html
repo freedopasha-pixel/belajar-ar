@@ -9,12 +9,17 @@
 
     <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
         
+        <a-assets>
+            <a-asset-item id="model-kamu" src="https://raw.gitee.com/KhronosGroup/glTF-Sample-Models/master/2.0/Duck/glTF-Binary/Duck.glb"></a-asset-item>
+        </a-assets>
+
         <a-marker preset="hiro">
             
-            <a-box position="0 0.5 0" 
-                   material="color: #ff0000; opacity: 0.8;" 
-                   animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
-            </a-box>
+            <a-entity gltf-model="#model-kamu" 
+                      position="0 0 0" 
+                      scale="0.5 0.5 0.5"
+                      animation="property: rotation; to: 0 360 0; loop: true; dur: 6000">
+            </a-entity>
             
         </a-marker>
 
